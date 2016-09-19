@@ -25,6 +25,7 @@ public class Tester2 {
         /*
          *  To specify number to test, add them here
          *  Leave blank for random numbers
+         *  This will be ignored if untilFailure is enabled
          */
 
         s1 = null;
