@@ -12,7 +12,7 @@ public class Tester2 {
          *  Which operation(s) would you like to test?
          *  May be one of PLUS, MINUS, MULTIPLY, DIVIDE, ALL
          */
-        oper = Operations.PLUS;
+        oper = Operations.DIVIDE;
 
         /*
          *  To test many random numbers, enable untilFailure
@@ -20,7 +20,7 @@ public class Tester2 {
          *  Leave as false to test one time
          */
 
-        untilFailure = true;
+        untilFailure = false;
 
         /*
          *  To specify number to test, add them here
@@ -91,12 +91,16 @@ public class Tester2 {
 
     private static boolean test() throws Exception {
         if (needRandom) {
-            num1 = rnd.nextInt(99999) + 10;
-            num2 = rnd.nextInt(99999) + 10;
-            if ((!untilFailure || oper == Operations.MINUS) && num1 < num2) {
-                int temp = num1;
-                num1 = num2;
-                num2 = temp;
+            if (!untilFailure || oper == Operations.DIVIDE || oper == Operations.MINUS) {
+                num1 = rnd.nextInt(999999) + 999;
+                if (!untilFailure && (oper == Operations.ALL || oper == Operations.DIVIDE)) { //smaller num2 to give a better example of division
+                    num2 = rnd.nextInt(num1/100) + 1;
+                } else {
+                    num2 = rnd.nextInt(num1 - 999) + 999;
+                }
+            } else {
+                num1 = rnd.nextInt(999999) + 99;
+                num2 = rnd.nextInt(999999) + 99;
             }
         }
         if (needRandomBase) base = rnd.nextInt(8) + 2;
