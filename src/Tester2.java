@@ -1,6 +1,8 @@
 import java.math.BigInteger;
 import java.util.Locale;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Allan Wang 2016/09/18
@@ -16,11 +18,11 @@ public class Tester2 {
 
         /*
          *  To test many random numbers, enable untilFailure
-         *  (Will test up to 99999 operations; stop it manually at any time)
+         *  (Will test up to 9999999 operations; stop it manually at any time)
          *  Leave as false to test one time
          */
 
-        untilFailure = false;
+        untilFailure = true;
 
         /*
          *  To specify number to test, add them here
@@ -36,7 +38,7 @@ public class Tester2 {
          * Write 0 for a random base between 2 & 10
          */
 
-        base = 10;
+        base = 0;
 
         start();
 
@@ -54,22 +56,31 @@ public class Tester2 {
                 needRandom = true;
             }
         }
-        needRandomBase = base < 2 || base > 10;
+        needRandomBase = base == 0;
 
         if (!untilFailure) {
             test();
         } else {
-            int i = 0;
-            while (i < 99999) {
+            final Timer timer = new Timer();
+            timer.schedule(new StatusUpdate(), 3000, 5000);
+            while (i < 9999999) {
                 if (!test()) {
                     System.out.println("You did well until test #" + (i + 1));
                     return;
                 }
                 i++;
             }
-            System.out.println("Success! No mismatches found");
+            timer.cancel();
+            System.out.println("Success! No mismatches found after " + (i - skipped) + " tests.");
         }
 
+    }
+
+    private static class StatusUpdate extends TimerTask {
+        @Override
+        public void run() {
+            System.out.println("Passed " + (i - skipped) + " tests! Still going...");
+        }
     }
 
     /*
@@ -87,16 +98,16 @@ public class Tester2 {
     private static boolean untilFailure;
     private static boolean needRandom;
     private static boolean needRandomBase;
-    private static int base, num1, num2;
+    private static int base, num1, num2, skipped = 0, i = 0;
 
     private static boolean test() throws Exception {
         if (needRandom) {
             if (!untilFailure || oper == Operations.DIVIDE || oper == Operations.MINUS) {
                 num1 = rnd.nextInt(999999) + 999;
                 if (!untilFailure && (oper == Operations.ALL || oper == Operations.DIVIDE)) { //smaller num2 to give a better example of division
-                    num2 = rnd.nextInt(num1/100) + 1;
+                    num2 = rnd.nextInt(num1 / 100) + 1;
                 } else {
-                    num2 = rnd.nextInt(num1 - 999) + 999;
+                    num2 = rnd.nextInt(num1 - 998) + 999;
                 }
             } else {
                 num1 = rnd.nextInt(999999) + 99;
@@ -109,8 +120,14 @@ public class Tester2 {
         s2 = Integer.toString(num2, base);
 
         if (base != 10) { //update num as it will be used to compare with the string later
-            num1 = Integer.parseInt(s1);
-            num2 = Integer.parseInt(s2);
+            try {
+                num1 = Integer.parseInt(s1);
+                num2 = Integer.parseInt(s2);
+            } catch (NumberFormatException e) {
+                //number is too big; skip because I'm lazy
+                skipped++;
+                return true;
+            }
         }
 
         BigInteger big1 = new BigInteger(s1, base);
@@ -188,6 +205,7 @@ public class Tester2 {
             testBig = "(" + big1.divide(big2).toString(base) + ")_" + base;
             testNat = n1.divide(n2).toString();
             mismatch = !testBig.equals(testNat);
+
             if (untilFailure && mismatch) {
                 System.out.println("Mismatch for " + s1 + " / " + s2);
                 System.out.println("Base " + base);
