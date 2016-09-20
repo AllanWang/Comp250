@@ -14,7 +14,7 @@ public class Tester2 {
          *  Which operation(s) would you like to test?
          *  May be one of PLUS, MINUS, MULTIPLY, DIVIDE, ALL
          */
-        oper = Operations.DIVIDE;
+        oper = Operations.PLUS;
 
         /*
          *  To test many random numbers, enable untilFailure
@@ -22,7 +22,7 @@ public class Tester2 {
          *  Leave as false to test one time
          */
 
-        untilFailure = true;
+        untilFailure = false;
 
         /*
          *  To specify number to test, add them here
@@ -38,7 +38,7 @@ public class Tester2 {
          * Write 0 for a random base between 2 & 10
          */
 
-        base = 0;
+        base = 10;
 
         start();
 
@@ -56,7 +56,7 @@ public class Tester2 {
                 needRandom = true;
             }
         }
-        needRandomBase = base == 0;
+        needRandomBase = base < 2 || base > 10;
 
         if (!untilFailure) {
             test();
