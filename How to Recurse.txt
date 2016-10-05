@@ -42,3 +42,43 @@ public void reverseRecursiveHelper(head) {
 		head.next.next = head
 	}
 }
+
+
+How it works:
+Say you have a list with a, b, c, d
+where a is the head and d is the tail
+
+public void reverse(){
+	SNode<E> oldHead = this.head; //oldHead = a
+	SNode<E> oldTail = this.tail; //oldTail = d
+	reverseRecursiveHelper1(a);
+	->
+		if (a.next != null) { //true, it's b
+			reverseRecursiveHelper2(b);
+			->
+				if (b.next != null) { //true, it's c
+					reverseRecursiveHelper3(c);
+					->
+						if (c.next != null) { //true, it's d
+							reverseRecursiveHelper4(d);
+							->
+								if (d.next != null) { //false, do nothing
+							d.next = c
+						}
+					c.next = b
+				}
+			b.next = a
+		}
+	oldHead.setNext(null); //a.next = null
+	SNode<E> tmp = oldHead;
+	this.head = oldTail;
+	this.tail = tmp; //switch head and tail
+}
+
+The result:
+d.next = c
+c.next = b
+b.next = a
+a.next = null
+head = d
+tail = a
