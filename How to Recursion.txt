@@ -1,0 +1,44 @@
+The general concept of recursion is the following:
+
+* To solve the problem for n, assume it is solvable for n - 1, then solve it from there.
+* You can repeat the same method for n - 1, solving it from n - 2, which is solvable from n - 3, etc
+* Eventually, you will go down to a base case (ie n - n = 0), for which you should know the answer
+* The end result is that you should be able to trim the problem bit by bit, until you are left with something small enough that you can easily solve.
+
+Let's take the problem below, which asks to create a reverseRecursiveHelper method to reverse a SLinkedList:
+(taken from http://www.cim.mcgill.ca/~langer/250/E6-recursion.pdf)
+
+public void reverse(){
+	SNode<E> oldHead = this.head;
+	SNode<E> oldTail = this.tail;
+	reverseRecursiveHelper(oldHead);
+	oldHead.setNext(null);
+	SNode<E> tmp = oldHead;
+	this.head = oldTail;
+	this.tail = tmp;
+}
+
+If we don't use recursion, we'd have to manually go through each item in the list (starting from the head), then modify the next reference to point to the previous one.
+To think in terms of recursions, simply assume that for a linked list of size n, you can already reverse all the items except the head (a list of size n - 1)
+Now, you're goal is to fix the head:
+
+public void reverseRecursiveHelper(head) {
+	//get the next item
+	second = head.next
+	if (second != null) {
+		reverseRecursiveHelper(second); //this is your induction hypothesis; you are calling the same method one element down
+		//now that the rest of the list is reversed, make the "next" item of the second element point to head
+		second.next = head
+	} else {
+		//this is your base case; your list is only size 1
+		//in this case, it is already reversed, so you don't need to do anything
+	}
+}
+
+The following is equivalent:
+public void reverseRecursiveHelper(head) {
+	if (head.next != null) {
+		reverseRecursiveHelper(head.next);
+		head.next.next = head
+	}
+}
