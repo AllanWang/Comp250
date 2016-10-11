@@ -3,20 +3,6 @@ import com.sun.istack.internal.Nullable;
 import java.util.HashSet;
 import java.util.Locale;
 
-/**
- * This class contains a main method that you can use to test your implementation
- * of StringStack and LanguageParser.
- * <p>
- * The tests provided below are given to you as examples. For full marks, your parser
- * will have to be entirely correct. Passing only the tests below does not mean that
- * your parser is truly correct.
- * <p>
- * As such, you are strongly encouraged to write more tests and to share your test
- * code with other students.
- * <p>
- * DO NOT SUBMIT THIS FILE.  Use it for your own testing only.
- */
-
 /*
  * Created by Allan Wang on 2016-10-11
  */
@@ -95,7 +81,6 @@ public class Tester2 {
         } else {
             print("\nAll tests are correct!");
         }
-
     }
 
     private static void print(String s, @Nullable Object... o) {
