@@ -1,3 +1,5 @@
+package A1;
+
 import java.math.BigInteger;
 import java.util.Locale;
 import java.util.Random;
@@ -159,7 +161,7 @@ public class Tester2 {
                 System.out.print("sum: big1+big2 =        ");
                 System.out.println(testBig);  // BigInteger
                 System.out.print("sum: n1+n2     =        ");
-                System.out.println(testNat);  // NaturalNumber
+                System.out.println(testNat);  // A1.NaturalNumber
                 checkNumUnchanged();
             }
             if (untilFailure && mismatch) return false;
@@ -177,7 +179,7 @@ public class Tester2 {
                 System.out.print("diff: big1-big2 =       ");
                 System.out.println(testBig);  // BigInteger
                 System.out.print("diff: n1-n2     =       ");
-                System.out.println(testNat);  // NaturalNumber
+                System.out.println(testNat);  // A1.NaturalNumber
                 checkNumUnchanged();
             }
             if (untilFailure && mismatch) return false;
@@ -194,8 +196,8 @@ public class Tester2 {
             if (!untilFailure || mismatch) {
                 System.out.print("multiply: big1*big2   = ");              // BigInteger
                 System.out.println(testBig);  // BigInteger
-                System.out.print("multiply: n1*n2       = ");               // NaturalNumber
-                System.out.println(testNat);  // NaturalNumber
+                System.out.print("multiply: n1*n2       = ");               // A1.NaturalNumber
+                System.out.println(testNat);  // A1.NaturalNumber
                 checkNumUnchanged();
             }
             if (untilFailure && mismatch) return false;
@@ -213,8 +215,8 @@ public class Tester2 {
             if (!untilFailure || mismatch) {
                 System.out.print("divide: big1/big2     = ");              // BigInteger  
                 System.out.println(testBig);  // BigInteger
-                System.out.print("divide: n1/n2         = ");                 // NaturalNumber
-                System.out.println(testNat);  // NaturalNumber
+                System.out.print("divide: n1/n2         = ");                 // A1.NaturalNumber
+                System.out.println(testNat);  // A1.NaturalNumber
                 checkNumUnchanged();
             }
             if (untilFailure && mismatch) return false;

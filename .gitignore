@@ -3,3 +3,6 @@ out/
 *.iml
 *.class
 *.zip
+
+# other
+src/ds/
