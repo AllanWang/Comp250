@@ -32,7 +32,7 @@ public class Tester2 {
         _9(9, false, "if true then a=2 else if true then a=3 else a=4 end a=5 end"),
 
         //The following tests are new
-        _10(10, true, "if true then if false then b=99 else if true then c=0 end end end"),
+        _10(10, false, "if true then if false then b=99 else if true then c=0 end end end"),
         _11(11, false, "if true then b=0 end end"),
         _12(12, false, "b=0 if true then c=0 end");
 
