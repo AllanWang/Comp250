@@ -9,7 +9,7 @@ import java.util.Locale;
 
 public class Tester2 {
 
-    private static Test[] custom = {Test._10, Test._5};
+    private static Test[] custom = {Test._13};
     private static Test[] full = Test.values();
 
     //use full or custom
@@ -34,7 +34,8 @@ public class Tester2 {
         //The following tests are new
         _10(10, false, "if true then if false then b=99 else if true then c=0 end end end"),
         _11(11, false, "if true then b=0 end end"),
-        _12(12, false, "b=0 if true then c=0 end");
+        _12(12, false, "b=0 if true then c=0 end"),
+        _13(13, false, "if true then b=0 else c=0 end c=0");
 
         private int key;
         private boolean result;
