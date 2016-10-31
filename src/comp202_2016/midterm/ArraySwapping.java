@@ -14,7 +14,7 @@ public class ArraySwapping {
         printLength("a2", a); //prints 8
         printLength("b2", b); //prints 5
         /*
-         * replica of swapArray, except it's in main
+         * replica of swapArray, except it's in main;
          * here, you change the references of a and b once again,
          * but they are still the exact references you are looking at when
          * printing the length
@@ -22,7 +22,7 @@ public class ArraySwapping {
         int[] temp = a;
         a = b;
         b = temp;
-        printLength("a3", a); //prints 5
+        printLength("a3", a); //prints 5 (notice there is a swap)
         printLength("b3", b); //prints 8
         /*
          * At the end of the day, the references in your main method
@@ -44,7 +44,7 @@ public class ArraySwapping {
         a = b; //a now points to same array as b(length 5)
         b = temp; //b now points to same array as temp (length 8)
         /*
-         * HOWEVER: all you've done is change the references of a and b in this method
+         * HOWEVER: all you've done is change the references of a and b in THIS method
          * Nothing has changed in regards to a and b in the main
          * To have these effects shown in main, you must do this method in main
          */
