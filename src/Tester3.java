@@ -14,8 +14,9 @@ public class Tester3 {
     private static final Trie trie = new Trie();
 
     private static String[] words = new String[]{
-            "a", "add", "adb", "cat", "dog", "potato"
+            "a", "add", "adb", "cat", "dog", "potato", "97", "90.3"
     };
+
     private static ArrayList<String> wordList;
 
     public static void main(String[] args) {
@@ -26,11 +27,11 @@ public class Tester3 {
         //Check to see if all the keys were properly added; will print errors
         getAllKeys();
         //Test the contains function; will print out errors
-        contains("a", "adb", "asd");
+        contains("a", "adb", "asd", "99", "9");
         //Test getPrefix; print only
-        prefix("a", "arr", "hippo", "ask", "potaato");
+        prefix("a", "arr", "hippo", "ask", "potaato", "9");
         //Test getAllPrefixMatches; will print out errors
-        autoComplete("a", "b", "ad", "pot", "z");
+        autoComplete("a", "b", "ad", "pot", "z", "9");
 
     }
 
