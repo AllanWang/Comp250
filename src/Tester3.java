@@ -59,7 +59,7 @@ public class Tester3 {
     private static void autoComplete(String... ss) {
         print("Testing autocomplete");
         for (String s : ss) {
-            ArrayList<String> matches = trie.getAllPrefixMatches(s);
+            ArrayList<String> matches = new ArrayList<>(trie.getAllPrefixMatches(s));
             print("\t%s: %s", s, matches);
             for (String m : wordList) {
                 if (m.length() < s.length()) continue;
