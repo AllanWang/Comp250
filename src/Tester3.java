@@ -79,7 +79,7 @@ public class Tester3 {
 
     private static void getAllKeys() {
         print("Testing getAllPrefixMatches from root");
-        List<String> list = trie.getAllPrefixMatches("");
+        ArrayList<String> list = new ArrayList<>(trie.getAllPrefixMatches(""));
         boolean correct = true;
         for (String s : wordList) {
             if (!list.remove(s)) {
