@@ -2,7 +2,6 @@ import a3posted.Trie;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Locale;
 
 /**
@@ -14,7 +13,7 @@ public class Tester3 {
     private static final Trie trie = new Trie();
 
     private static String[] words = new String[]{
-            "a", "add", "adb", "cat", "dog", "potato", "97", "90.3"
+            "a", "add", "adb", "cat", "dog", "potato", "97", "90.3", "ra*&@(ndo)(m"
     };
 
     private static ArrayList<String> wordList;
@@ -27,11 +26,11 @@ public class Tester3 {
         //Check to see if all the keys were properly added; will print errors
         getAllKeys();
         //Test the contains function; will print out errors
-        contains("a", "adb", "asd", "99", "9");
+        contains("a", "adb", "asd", "99", "9", "ra");
         //Test getPrefix; print only
-        prefix("a", "arr", "hippo", "ask", "potaato", "9");
+        prefix("a", "arr", "hippo", "ask", "potaato", "9", "r");
         //Test getAllPrefixMatches; will print out errors
-        autoComplete("a", "b", "ad", "pot", "z", "9");
+        autoComplete("a", "b", "ad", "pot", "z", "9", "r");
 
     }
 
