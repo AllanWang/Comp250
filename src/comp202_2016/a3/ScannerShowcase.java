@@ -10,11 +10,11 @@ public class ScannerShowcase {
 
     public static void main(String[] args) {
 
-        Scanner input = new Scanner(System.in);
-        Info info = new Info();
+        Scanner input = new Scanner(System.in); //initialize scanner
+        Info info = new Info(); //Don't worry about this
+
         System.out.println("What is your name?"); //Just a prompt so the user knows what to type
         info.name = input.nextLine(); //nextLine allows for spaces
-
 
         System.out.println("What is the temperature?"); //Just a prompt so the user knows what to type
         while (!input.hasNextDouble()) { //input cannot be parsed as a double
@@ -45,7 +45,6 @@ public class ScannerShowcase {
         } else {
             System.out.println("It's a bad day."); //Splitting up the sentence allows me to type the parts of the statement that are the same in each case only once.
         }
-
     }
 
     private static class Info { //Your classes won't be private nor static; don't worry about this
