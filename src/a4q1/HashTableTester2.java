@@ -127,8 +127,11 @@ public class HashTableTester2 {
         for (String s : songTable.keys()) {
             map.remove(s);
         }
-        for (String s : map.keySet()) {
-            print(s);
+        if (!map.isEmpty()) {
+            print("Songs not iterated through the .keys() method");
+            for (String s : map.keySet()) {
+                print(map.get(s).toString());
+            }
         }
         if (!errorLog.isEmpty()) {
             for (String s : errorLog) print(s);
