@@ -1,7 +1,5 @@
 package a4q1;
 
-import org.omg.CORBA.OBJ_ADAPTER;
-
 import java.util.*;
 
 
