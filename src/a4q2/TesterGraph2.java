@@ -10,6 +10,7 @@ public class TesterGraph2 {
         //Add tests here
         original();
         triangles();
+        repetition();
         //Leave this here
         if (errorSomewhere) print("\nError found somewhere");
         else print("\nAll tests passed!");
@@ -47,6 +48,19 @@ public class TesterGraph2 {
                 .traverse("7", 200, "None");
     }
 
+    private static void repetition() {
+        new TesterGraph2().addVertices(
+                new V("1", new Square(6)),
+                new V("2", new Triangle(4, 4)),
+                new V("3", new Circle(3)),
+                new V("4", new Square(3)),
+                new V("5", new Circle(1))
+        ).addEdges("1 2", "1 3", "2 3", "2 4", "3 4", "4 5", "1 5")
+                .printGraph()
+                .traverse("1", 50, "1 2 3", "1 2 3 4", "1 2 3 4 5")
+                .traverse("3", 1, "3", "3 4", "3 4 5");
+    }
+
     // I'm too lazy to write Vertex<Shape> every time
     private static class V extends Vertex<Shape> {
         V(String key, Shape element) {
@@ -73,6 +87,7 @@ public class TesterGraph2 {
 
     /**
      * Add vertices to graph; should be done first
+     *
      * @param vertices array of vertices
      * @return this class
      */
@@ -98,6 +113,7 @@ public class TesterGraph2 {
 
     /**
      * Optional method to print the graph
+     *
      * @return this class
      */
     public TesterGraph2 printGraph() {
@@ -109,9 +125,10 @@ public class TesterGraph2 {
     /**
      * Graph traversal; can be done multiple times for a given graph
      * If traversing numerous times doesn't work, make sure you've reset the visited boolean in your graph class
-     * @param key key of vertex to start at
+     *
+     * @param key       key of vertex to start at
      * @param threshold threshold area
-     * @param answers optional array of Strings reflecting the expected output of this result
+     * @param answers   optional array of Strings reflecting the expected output of this result
      * @return this class
      */
     public TesterGraph2 traverse(String key, float threshold, String... answers) {
@@ -183,6 +200,7 @@ public class TesterGraph2 {
 
     /**
      * Just a print helper that you see in all my classes
+     *
      * @param s String with formats
      * @param o optional args
      */
