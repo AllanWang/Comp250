@@ -8,7 +8,7 @@ public class ObjectReferences {
 
     /*
      * Try to see if you can figure out what gets printed at each step
-     * Remember that objects, like arrays, are pointers. Be careful as to which object is pointint to what
+     * Remember that objects, like arrays, are references. Be careful as to what the objects are referencing
      * You can run the code to see the results
      * Note that printing a Number will print the integer it currently holds
      * \t just means tab (more spaces)
