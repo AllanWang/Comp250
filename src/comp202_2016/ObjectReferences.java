@@ -26,7 +26,7 @@ public class ObjectReferences {
         System.out.println("Step 3:\t\tx=" + x + "\ty=" + y);
         y = new Number(step4(x, new Number(5)));
         System.out.println("Step 4:\t\tx=" + x + "\t\ty=" + y);
-        System.out.println(goodLuck(x, x));
+        System.out.println("y=" + goodLuck(x, x) + " ");
     }
 
     static void step1(Number y, Number x) {
@@ -54,13 +54,13 @@ public class ObjectReferences {
         return y.get();
     }
 
-    static String goodLuck(Number i, Number j) {
+    static Number goodLuck(Number i, Number j) {
         Number l = new Number(1);
         j.set(0);
         System.out.print("x=" + i + " ");
         i.set(9);
         j.set(8);
-        return "y=" + j + " ";
+        return j;
     }
 }
 
