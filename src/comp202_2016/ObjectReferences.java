@@ -3,30 +3,6 @@ package comp202_2016;
 /**
  * Created by Allan Wang on 2016-12-08.
  * 
- * Object references can be a tricky thing. When we have an object, eg Number x, x itself is a reference
- * that points to the actual Number. It is very important to distinguish the difference between a reference variable
- * 
- */
-
-public class ObjectReferences {
-
-    /*
-     * Try to see if you can figure out what gets printed at each step
-     * Remember that objects, like arrays, are references. Be careful as to what the objects are referencing
-     * You can run the code to see the results
-     * Note that printing a Number will print the integer it currently holds
-     * \t just means tab (more spaces)
-     */
-    public static void main (String[] args) {
-        Number x = new Number(5);
-        Number y = new Number(3);
-        //This should be easy; what prints?
-        System.out.println("Starting:\tx=" + x + "\t\ty=" + y);
-        step1(x, y);
-        System.out.println("Step 1:\t\tx=" + x + "\t\ty=" + y);
-/**
- * Created by Allan Wang on 2016-12-08.
- * 
  * It is very important to distinguish the difference between 
  * a reference variable and something like a primitive variable.
  * Objects are accessed through reference variables, which is like a pointer pointing to the actual object.
